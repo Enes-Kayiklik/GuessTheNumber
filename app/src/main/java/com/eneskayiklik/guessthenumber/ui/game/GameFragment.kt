@@ -36,14 +36,11 @@ class GameFragment: Fragment(R.layout.fragment_game) {
                 makeToast("İlk Basamak 0 Olamaz")
             }
             else -> {
-                when {
-                    guessedNumber.toInt() < realNumber -> {
-                        makeToast("${realNumber - guessedNumber.toInt()} Ekle")
+                when (realNumber) {
+                    guessedNumber.toInt() -> {
+                        makeToast("Tebrikler!")
                     }
-                    guessedNumber.toInt() > realNumber -> {
-                        makeToast("${guessedNumber.toInt() - realNumber} Çıkar")
-                    }
-                    else -> makeToast("Tebrikler!")
+                    else -> makeToast("Tekrar Tahmin Et")
                 }
             }
         }
